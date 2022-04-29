@@ -172,7 +172,7 @@ renderAction=()=>{
 }
 
   componentDidMount() {
-    this.onChangeText(this.props.value || '')
+    this.onChangeText(this.props.initialValue || '')
   }
 
   render() {
@@ -218,7 +218,7 @@ IntlPhoneInput.propTypes = {
   lang: PropTypes.string,
   defaultCountry: PropTypes.string,
   mask: PropTypes.string,
-  value: PropTypes.string,
+  initialValue: PropTypes.string,
   onChangeText: PropTypes.func,
   customModal: PropTypes.func,
   phoneInputStyle: PropTypes.object, // {}
