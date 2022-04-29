@@ -122,6 +122,7 @@ export default class IntlPhoneInput extends React.Component {
       filterText,
       searchIconStyle,
       closeButtonStyle,
+      closeTextStyle,
       lang,
       placeholderTextColor
     } = this.props;
@@ -153,7 +154,7 @@ export default class IntlPhoneInput extends React.Component {
           />
         </View>
         <TouchableOpacity onPress={() => this.hideModal()} style={[styles.closeButtonStyle, closeButtonStyle]}>
-          <Text style={styles.closeTextStyle}>{closeText || 'CLOSE'}</Text>
+          <Text style={[styles.closeTextStyle, closeTextStyle]}>{closeText || 'CLOSE'}</Text>
         </TouchableOpacity>
         </SafeAreaView>
       </Modal>
@@ -172,11 +173,6 @@ renderAction=()=>{
 
   componentDidMount() {
     this.onChangeText(this.props.value || '')
-  }
-
-  componentDidUpdate(prevProps) {
-    if (prevProps.value !== this.props.value)
-      this.onChangeText(prevProps.value)
   }
 
   render() {
@@ -232,6 +228,7 @@ IntlPhoneInput.propTypes = {
   modalContainer: PropTypes.object, // {}
   filterInputStyle: PropTypes.object, // {}
   closeButtonStyle: PropTypes.object, // {}
+  closeTextStyle: PropTypes.object, // {}
   modalCountryItemCountryNameStyle: PropTypes.object, // {}
   filterText: PropTypes.string,
   closeText: PropTypes.string,
